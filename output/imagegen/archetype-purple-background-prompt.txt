@@ -1,0 +1,6 @@
+Tool: built-in image_gen
+
+Use case: precise-object-edit / background recoloring.
+Image 1 is the EDIT TARGET: an angled Nothing Phone lying on a sculpted ribbed black/gray surface. Image 2 is ONLY the dark-purple COLOR PALETTE reference.
+Change ONLY the color of the background surface in image 1. Preserve exactly the existing long diagonal raised ribs, their spacing, geometry, texture, highlights, cast shadows, camera view, crop and composition. Recolor the achromatic black/gray background into the same rich dark violet/eggplant family as the background in image 2: near-black purple in deep grooves (#100b1c), deep aubergine planes (#261238), restrained violet highlights (#39204f to #512568). Keep the background dark, premium, dimensional and photographic. Do NOT replace the ribs with a smooth gradient. Do NOT add stars or objects.
+The entire phone is invariant: preserve its shape, position, scale, angle, device frame, screen colors, all screen typography and text exactly as in image 1. Do not translate, rewrite, or regenerate the screen content. No other changes. Output landscape 4:3.

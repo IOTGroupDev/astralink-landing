@@ -82,6 +82,45 @@ export function FeatureCard({
             sizes="(max-width: 600px) 360px, (max-width: 1000px) 440px, 560px"
             quality={80}
           />
+        ) : feature.id === "academy" ? (
+          <Image
+            className="academy-device-mockup"
+            src="/images/academy-iphone.webp"
+            alt="AstraLink Academy on a black iPhone: learning progress and a lesson about the Moon in zodiac signs"
+            width={800}
+            height={1626}
+            sizes="(max-width: 540px) 245px, (max-width: 1000px) 270px, 305px"
+            quality={80}
+          />
+        ) : feature.id === "ai-advisor" ? (
+          <div className="advisor-mockup-stage">
+            <Image
+              className="advisor-device-mockup"
+              src="/images/advisor-iphone-pair.webp"
+              alt="Two iPhones showing AstraLink’s AI Advisor topic selection and conversation"
+              fill
+              sizes="(max-width: 540px) 240px, (max-width: 800px) 320px, 400px"
+              quality={80}
+            />
+          </div>
+        ) : feature.id === "archetype" ? (
+          <Image
+            className="feature-cover-image"
+            src="/images/archetype-nothing-phone.webp"
+            alt="AstraLink natal chart and cosmic archetype on a Nothing Phone"
+            fill
+            sizes="(max-width: 540px) 100vw, 50vw"
+            quality={80}
+          />
+        ) : feature.id === "personal-codes" ? (
+          <Image
+            className="feature-cover-image"
+            src="/images/personal-codes-hand.webp"
+            alt="A hand holding a phone with AstraLink’s personal code 6986, energy and numerology in English"
+            fill
+            sizes="(max-width: 540px) 100vw, 50vw"
+            quality={80}
+          />
         ) : feature.id === "cosmic-dating" || feature.id === "cosmic-simulator" ? (
           <Image
             className="feature-device-mockup"
@@ -94,9 +133,7 @@ export function FeatureCard({
             sizes="(max-width: 540px) 250px, (max-width: 1200px) 240px, 300px"
             quality={80}
           />
-        ) : (
-          <Phone image={feature.image} alt={feature.alt} />
-        )}
+        ) : null}
         {wide && (
           <>
             <span className="floating-label floating-label-one">
@@ -104,9 +141,15 @@ export function FeatureCard({
               {feature.label.split(" · ")[0]}
             </span>
             <span className="floating-label floating-label-two">
-              <span>☉ Sun</span>
-              <span>☾ Moon</span>
-              <span>ASC</span>
+              {feature.id === "academy" ? (
+                <span>Learn at your pace</span>
+              ) : (
+                <>
+                  <span>☉ Sun</span>
+                  <span>☾ Moon</span>
+                  <span>ASC</span>
+                </>
+              )}
             </span>
           </>
         )}

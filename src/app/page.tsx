@@ -1,3 +1,10 @@
+import { WhySwitchSection } from "@/components/why-switch-section";
+import { PopularSection } from "@/components/popular-section";
+import { KeepExploring } from "@/components/keep-exploring";
+import { SharePage } from "@/components/share-page";
+import { BigThreeSection } from "@/components/big-three-section";
+import { LearningIcon } from "@/components/learning-icon";
+import { MatchingSection } from "@/components/matching-section";
 import { OptimizedImage as Image } from "@/components/optimized-image";
 import { BrandLogo } from "@/components/brand-logo";
 import { mobileHero } from "@/lib/images";
@@ -271,129 +278,66 @@ export default function Home() {
 
         <CommunityCircle />
 
+        <MatchingSection connections={connections} />
+
         <section
-          className="matching-section section-shell"
-          id="matching"
-          aria-labelledby="matching-title"
+          className="early-access-section page-panel"
+          id="early-access"
+          aria-labelledby="early-access-title"
         >
-          <SectionHeading
-            label="Cosmic Dating"
-            title="How chart-based matching works"
-            id="matching-title"
-          >
-            Two charts, five decisive connections. Each one is scored, then
-            explained in plain English so you can decide with your eyes open.
-          </SectionHeading>
-          <div className="connections-grid">
-            {connections.map(([symbol, title, subtitle, description]) => (
-              <div key={title} className="connection">
-                <span className="connection-symbol" aria-hidden="true">
-                  {symbol}
-                </span>
-                <h3>{title}</h3>
-                <p>{subtitle}</p>
-                <span className="connection-line" aria-hidden="true" />
-                <p className="connection-description">{description}</p>
-              </div>
-            ))}
+          <div className="early-access-copy">
+            <p className="eyebrow">Early access · US launch</p>
+            <h2 id="early-access-title">
+              Find your
+              <br />
+              <span>cosmic match.</span>
+            </h2>
+            <p>
+              Thirty seconds now, a complete chart later. Early-access members
+              are invited in waves, in signup order, city by city.
+            </p>
+            <ul className="benefits">
+              <li>
+                <Check />
+                First test wave: you’re in before the public launch on November
+                16
+              </li>
+              <li>
+                <Check />3 months of Premium free, then 80% off for a year*
+              </li>
+              <li>
+                <Check />
+                Free full birth chart + cosmic archetype at launch
+              </li>
+              <li>
+                <Check />A say in what we build next
+              </li>
+            </ul>
+            <a
+              href={sourceLink("/terms/#4-early-access-waitlist")}
+              className="offer-terms"
+            >
+              * Offer terms
+            </a>
+            <div className="early-access-chips">
+              {[
+                "Natal chart",
+                "AI Advisor",
+                "Chart-based dating",
+                "Personal Codes",
+                "Cosmic Simulator",
+                "Academy",
+              ].map((name) => (
+                <span key={name}>{name}</span>
+              ))}
+            </div>
           </div>
-          <div className="compatibility-panel">
-            <div className="compatibility-copy">
-              <p className="eyebrow">Real synastry</p>
-              <h3>Why this beats a Sun-sign match</h3>
-              <p>
-                Two Scorpios can be a disaster and a Scorpio–Leo pair can last
-                decades. What decides it is where Venus, Mars, the Moon and
-                Saturn sit in each chart and how they touch the other
-                person&apos;s. That is synastry, and it is what AstraLink
-                computes for every match.
-              </p>
-              <a
-                href={sourceLink("/compatibility-calculator/")}
-                className="text-link"
-              >
-                Try the free compatibility calculator
-                <Arrow diagonal />
-              </a>
-            </div>
-            <div className="score-panel">
-              <div className="score-title">
-                <span className="eyebrow">Leo & Scorpio</span>
-                <span className="score-illustrative">Illustrative pairing</span>
-              </div>
-              <h3>What a compatibility score is made of</h3>
-              <p>
-                A single percentage is easy to screenshot and easy to misread.
-                AstraLink shows the four axes behind it, so a 72% with low
-                friction and high growth reads differently from a 72% built on
-                attraction alone.
-              </p>
-              <div className="score-bars">
-                {[
-                  ["Love & attraction", 86],
-                  ["Communication", 74],
-                  ["Friction", 38],
-                  ["Long-term growth", 81],
-                ].map(([name, score]) => (
-                  <div className="score-row" key={name}>
-                    <div>
-                      <span>{name}</span>
-                      <strong>{score}%</strong>
-                    </div>
-                    <div className="score-track">
-                      <span style={{ width: `${score}%` }} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="small-note">
-                Illustrative values for a Leo–Scorpio pairing. Your own scores
-                are computed from exact birth data in the app.
-              </p>
-            </div>
+          <div className="early-access-form-panel">
+            <WaitlistForm />
           </div>
         </section>
 
-        <section
-          className="big-three-section page-panel"
-          aria-labelledby="big-three-title"
-        >
-          <ZodiacWheel className="big-three-wheel" />
-          <div className="big-three-copy">
-            <p className="eyebrow">Sun · Moon · Rising</p>
-            <h2 id="big-three-title">
-              Your chart is more
-              <br />
-              than your Sun sign
-            </h2>
-            <p>
-              The Sun is your core, the Moon is your needs and the rising sign
-              is the mask everyone meets first. AstraLink reads all three, then
-              the other seven planets, twelve houses and every aspect between
-              them.
-            </p>
-            <details className="birth-time-details">
-              <summary>
-                Why birth time matters<span aria-hidden="true">+</span>
-              </summary>
-              <p>
-                The rising sign changes roughly every two hours, and it sets all
-                twelve houses. Without it, an app can only describe the surface.
-                With it, AstraLink can tell you which house your Saturn return
-                lands in, where a new partner&apos;s Venus falls in your chart,
-                and which days the Advisor should flag for you.
-              </p>
-              <p>
-                No birth time? You still get a date-only chart, and the Academy
-                shows you how to find the time later.
-              </p>
-            </details>
-            <a href={sourceLink("/birth-chart/")} className="text-link">
-              Calculate your Big Three free
-              <Arrow diagonal />
-            </a>
-          </div>
-        </section>
+        <BigThreeSection />
 
         <section
           className="stats-section section-shell"
@@ -434,18 +378,21 @@ export default function Home() {
             Advisor and Cosmic Simulator tell you which of these dates matter
             for your chart and which you can ignore.
           </SectionHeading>
-          <div className="sky-grid">
+          <ol className="sky-timeline" aria-label="Celestial events in chronological order">
             {skyEvents.map(([date, title, description, symbol]) => (
-              <article className="sky-card" key={title}>
-                <span className="sky-symbol" aria-hidden="true">
-                  {symbol}
-                </span>
-                <p className="eyebrow">{date}</p>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </article>
+              <li className="sky-timeline-event" key={title}>
+                <p className="sky-timeline-date">{date}</p>
+                <span className="sky-timeline-node" aria-hidden="true" />
+                <article className="sky-timeline-content">
+                  <span className="sky-timeline-symbol" aria-hidden="true">{symbol}</span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                  </div>
+                </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
         <section
@@ -536,22 +483,31 @@ export default function Home() {
             No signup, no email. Each one runs in your browser and previews what
             the app computes from your exact chart.
           </SectionHeading>
-          <div className="tools-grid">
+          <div className="tools-launch-grid">
             {tools.map((tool, i) => (
               <a
-                className="tool-card"
+                className="tool-launch-card"
                 key={tool.title}
                 href={sourceLink(tool.href)}
               >
-                <div className="tool-card-top">
-                  <span className="tool-symbol" aria-hidden="true">
-                    {tool.icon}
-                  </span>
-                  {i === 0 && <span className="tool-badge">most popular</span>}
-                  <Arrow diagonal />
+                <div className="tool-launch-visual">
+                  <span className="tool-launch-plinth" aria-hidden="true" />
+                  <Image
+                    src={`/images/${tool.image}.webp`}
+                    alt=""
+                    width={320}
+                    height={320}
+                    sizes="144px"
+                    className="tool-launch-icon"
+                  />
+                  {i === 0 && <span className="tool-launch-badge">Most popular</span>}
                 </div>
                 <h3>{tool.title}</h3>
                 <p>{tool.text}</p>
+                <span className="tool-launch-action">
+                  {tool.action}
+                  <span className="tool-launch-arrow"><Arrow diagonal /></span>
+                </span>
               </a>
             ))}
           </div>
@@ -576,62 +532,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          className="early-access-section page-panel"
-          id="early-access"
-          aria-labelledby="early-access-title"
-        >
-          <div className="early-access-copy">
-            <p className="eyebrow">Early access · US launch</p>
-            <h2 id="early-access-title">
-              Find your
-              <br />
-              <span>cosmic match.</span>
-            </h2>
-            <p>
-              Thirty seconds now, a complete chart later. Early-access members
-              are invited in waves, in signup order, city by city.
-            </p>
-            <ul className="benefits">
-              <li>
-                <Check />
-                First test wave: you’re in before the public launch on November
-                16
-              </li>
-              <li>
-                <Check />3 months of Premium free, then 80% off for a year*
-              </li>
-              <li>
-                <Check />
-                Free full birth chart + cosmic archetype at launch
-              </li>
-              <li>
-                <Check />A say in what we build next
-              </li>
-            </ul>
-            <a
-              href={sourceLink("/terms/#4-early-access-waitlist")}
-              className="offer-terms"
-            >
-              * Offer terms
-            </a>
-            <div className="early-access-chips">
-              {[
-                "Natal chart",
-                "AI Advisor",
-                "Chart-based dating",
-                "Personal Codes",
-                "Cosmic Simulator",
-                "Academy",
-              ].map((name) => (
-                <span key={name}>{name}</span>
-              ))}
-            </div>
-          </div>
-          <div className="early-access-form-panel">
-            <WaitlistForm />
-          </div>
-        </section>
+
 
         <section
           className="learning-section section-shell"
@@ -646,52 +547,29 @@ export default function Home() {
             Everything on this site is free, written by our editorial team and
             reviewed for astrological accuracy.
           </SectionHeading>
-          <div className="learning-grid">
+          <div className="learn-resource-grid">
             {learning.map(([title, description, href], i) => (
-              <a href={sourceLink(href)} className="learning-item" key={title}>
-                <span className="learning-number">0{i + 1}</span>
-                <div>
-                  <h3>
-                    {title}
-                    <Arrow diagonal />
-                  </h3>
-                  <p>{description}</p>
+              <a href={sourceLink(href)} className="learn-resource-card" key={title}>
+                <div className="learn-resource-top">
+                  <span className="learn-resource-icon"><LearningIcon kind={i} /></span>
+                  <Arrow diagonal className="learn-resource-arrow" />
                 </div>
+                <h3>{title}</h3>
+                <p>{description}</p>
               </a>
             ))}
           </div>
         </section>
 
-        <section
-          className="why-section section-shell"
-          aria-labelledby="why-title"
-        >
-          <div>
-            <p className="eyebrow">Your whole chart. Your own path.</p>
-            <h2 id="why-title">
-              Why people switch
-              <br />
-              to AstraLink
-            </h2>
-            <Sparkle className="why-star" />
-          </div>
-          <div>
-            <ul className="why-list">
-              {reasons.map((reason) => (
-                <li key={reason}>
-                  <Check />
-                  <p>{reason}</p>
-                </li>
-              ))}
-            </ul>
-            <p className="small-note">
-              About 27% of US adults believe in astrology (43% of women 18–49,
-              per Pew Research). We treat it as a precise language for patterns
-              — powered by real calculation and a model that explains itself,
-              never medical, legal or financial advice. See our{" "}
-              <a href={sourceLink("/editorial-policy/")}>editorial policy</a>{" "}
-              for how we calculate and use AI.
-            </p>
+        <WhySwitchSection reasons={reasons} />
+
+        <section className="signup-waves-section section-shell" aria-labelledby="signup-waves-title">
+          <div className="signup-waves-panel">
+            <div>
+              <h2 id="signup-waves-title">Waves fill in signup order</h2>
+              <p>Founding-member pricing and first access to matching in your city go to the people on the list first. It takes thirty seconds and costs nothing.</p>
+            </div>
+            <a className="button button-primary" href="#early-access">Join early access<Arrow diagonal /></a>
           </div>
         </section>
 
@@ -706,13 +584,11 @@ export default function Home() {
             id="faq-title"
           />
           <div className="faq-list">
-            {faqs.map((faq) => (
-              <details key={faq.question} name="faq">
+            {faqs.map((faq, index) => (
+              <details key={faq.question} name="faq" open={index === 0}>
                 <summary>
                   {faq.question}
-                  <span className="faq-toggle" aria-hidden="true">
-                    +
-                  </span>
+                  <span className="faq-toggle" aria-hidden="true" />
                 </summary>
                 <p>{faq.answer}</p>
               </details>
@@ -720,30 +596,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="popular-section section-shell">
-          <h2>Popular right now</h2>
-          <div className="popular-links">
-            {[
-              ["555 angel number", "/angel-numbers/555/"],
-              ["Astrocartography", "/astrocartography/"],
-              ["Grabovoi codes", "/grabovoi-codes/"],
-              ["Saturn return", "/saturn-return/"],
-              ["Void of course Moon", "/void-of-course-moon/"],
-              ["Leo & Scorpio", "/compatibility/leo-scorpio/"],
-              ["Mercury retrograde", "/transits/mercury-retrograde/"],
-              ["Virgo", "/horoscopes/virgo/"],
-              ["Tarot", "/tarot/"],
-              ["Numerology", "/numerology/"],
-              ["Chinese zodiac", "/chinese-zodiac/"],
-              ["Astrology glossary", "/glossary/"],
-            ].map(([title, href]) => (
-              <a href={sourceLink(href)} key={title}>
-                {title}
-                <Arrow diagonal width="14" height="14" />
-              </a>
-            ))}
+        <PopularSection />
+
+        <section className="sources-section section-shell" aria-labelledby="sources-title">
+          <div className="sources-panel">
+            <h2 id="sources-title">Sources</h2>
+            <p>The checkable facts on this page come from these external sources. The astrological interpretation is our own.</p>
+            <p className="sources-reference">
+              <a href="https://www.pewresearch.org/religion/2025/05/21/3-in-10-americans-consult-astrology-tarot-cards-or-fortune-tellers/">30% of Americans Consult Astrology, Tarot Cards or Fortune Tellers</a>
+              <span> · Pew Research Center</span>
+            </p>
+            <p className="sources-note">About 27% of US adults believe in astrology (43% of women 18–49); LGBT adults are about twice as likely to consult it.</p>
           </div>
         </section>
+
+        <KeepExploring />
+        <SharePage url={process.env.NEXT_PUBLIC_SITE_URL || "https://www.astra-link.app/"} />
 
         <section className="final-cta section-shell">
           <p className="eyebrow">Waves fill in signup order</p>

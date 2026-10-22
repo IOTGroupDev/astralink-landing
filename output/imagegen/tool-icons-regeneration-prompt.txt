@@ -1,0 +1,4 @@
+Tool: built-in image_gen
+Six separate calls using original icon-planet.webp, icon-heart.webp, icon-path.webp, icon-lotus.webp, icon-flower.webp, icon-tree.webp as respective references.
+
+Re-render this exact 3D icon almost one-to-one at higher resolution. Preserve the same subject, silhouette, number of objects, arrangement, proportions, camera angle, lavender/pink/gold palette, rounded glossy satin 3D material, soft lighting and all decorative details. Do not invent a new concept. Do not add objects, faces, lettering, cards, or a pedestal not already present. A faithful fresh rendering of the supplied icon, with small natural rendering differences only. Center the complete icon on a square canvas, occupying around 80% of the canvas with even safe margins. Clean crisp professional 3D illustration, transparent background with true alpha, no background rectangle, no text or watermark.
