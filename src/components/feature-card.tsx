@@ -30,21 +30,29 @@ export function FeatureCard({
   feature,
   wide = false,
   tone = "neutral",
-  showBreakdown = false,
-  actionStyle = "link",
 }: {
   feature: Feature;
   wide?: boolean;
   tone?: string;
-  showBreakdown?: boolean;
-  actionStyle?: "link" | "button";
 }) {
   const points = (
     <ul>
       {feature.points.map((point) => (
         <li key={point}>
           <Check />
-          <span>{point}</span>
+          <span>
+            {feature.id === "birth-chart" && point.includes("dispositor") ? (
+              <>
+                {point.split("dispositor")[0]}
+                <a href="https://www.astra-link.app/glossary/dispositor/">
+                  dispositor
+                </a>
+                {point.split("dispositor")[1]}
+              </>
+            ) : (
+              point
+            )}
+          </span>
         </li>
       ))}
     </ul>
@@ -64,7 +72,31 @@ export function FeatureCard({
           </>
         )}
         <div className="phone-halo" aria-hidden="true" />
-        <Phone image={feature.image} alt={feature.alt} />
+        {feature.id === "birth-chart" ? (
+          <Image
+            className="natal-hand-mockup"
+            src="/images/natal-chart-hand.webp"
+            alt="A hand holding a phone with AstraLink’s natal chart reading"
+            width={1080}
+            height={1368}
+            sizes="(max-width: 600px) 360px, (max-width: 1000px) 440px, 560px"
+            quality={80}
+          />
+        ) : feature.id === "cosmic-dating" || feature.id === "cosmic-simulator" ? (
+          <Image
+            className="feature-device-mockup"
+            src={`/images/${feature.id}-iphone.webp`}
+            alt={feature.id === "cosmic-dating"
+              ? "AstraLink home screen in a black iPhone 15 mockup"
+              : "AstraLink natal chart and Cosmic Simulator shortcut in a black iPhone 15 mockup"}
+            width={800}
+            height={1626}
+            sizes="(max-width: 540px) 250px, (max-width: 1200px) 240px, 300px"
+            quality={80}
+          />
+        ) : (
+          <Phone image={feature.image} alt={feature.alt} />
+        )}
         {wide && (
           <>
             <span className="floating-label floating-label-one">
@@ -72,7 +104,9 @@ export function FeatureCard({
               {feature.label.split(" · ")[0]}
             </span>
             <span className="floating-label floating-label-two">
-              ☉ &nbsp; Sun &nbsp; ☾ &nbsp; Moon &nbsp; ASC
+              <span>☉ Sun</span>
+              <span>☾ Moon</span>
+              <span>ASC</span>
             </span>
           </>
         )}
@@ -81,27 +115,11 @@ export function FeatureCard({
         <p className="eyebrow">{feature.label}</p>
         <h3>{feature.title}</h3>
         <p className="feature-description">{feature.description}</p>
-        <a
-          className={
-            actionStyle === "button"
-              ? "button button-primary feature-cta"
-              : "text-link"
-          }
-          href={feature.href}
-        >
+        <a className="button button-primary feature-cta" href={feature.href}>
           {feature.action}
           <Arrow diagonal />
         </a>
-        {showBreakdown ? (
-          <div className="feature-details feature-details-static">{points}</div>
-        ) : (
-          <details className="feature-details">
-            <summary>
-              Read the full breakdown<span aria-hidden="true">+</span>
-            </summary>
-            {points}
-          </details>
-        )}
+        <div className="feature-details">{points}</div>
       </div>
     </article>
   );

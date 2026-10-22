@@ -1,6 +1,7 @@
 import { OptimizedImage as Image } from "@/components/optimized-image";
 import { BrandLogo } from "@/components/brand-logo";
 import { mobileHero } from "@/lib/images";
+import { CommunityCircle } from "@/components/community-circle";
 import { FeatureCard } from "@/components/feature-card";
 import { Arrow, Check, Sparkle, ZodiacWheel } from "@/components/icons";
 import { WaitlistForm } from "@/components/waitlist-form";
@@ -247,26 +248,10 @@ export default function Home() {
             Seven things you will use in the first week. Every screen below is
             the real app, in English, as early-access members see it.
           </SectionHeading>
-          <FeatureCard
-            feature={features.chart}
-            wide
-            tone="cosmic"
-            showBreakdown
-            actionStyle="button"
-          />
-          <div className="feature-grid">
-            <FeatureCard
-              feature={features.dating}
-              tone="rose"
-              showBreakdown
-              actionStyle="button"
-            />
-            <FeatureCard
-              feature={features.moon}
-              tone="moon"
-              showBreakdown
-              actionStyle="button"
-            />
+          <FeatureCard feature={features.chart} wide tone="cosmic" />
+          <div className="feature-grid feature-grid-centered">
+            <FeatureCard feature={features.dating} tone="rose" />
+            <FeatureCard feature={features.moon} tone="moon" />
           </div>
           <div className="section-interlude">
             <Sparkle />
@@ -277,12 +262,14 @@ export default function Home() {
             </h2>
           </div>
           <FeatureCard feature={features.advisor} wide tone="advisor" />
-          <div className="feature-grid">
+          <div className="feature-grid feature-grid-centered">
             <FeatureCard feature={features.archetype} tone="violet" />
             <FeatureCard feature={features.codes} tone="amber" />
           </div>
           <FeatureCard feature={features.academy} wide tone="academy" />
         </section>
+
+        <CommunityCircle />
 
         <section
           className="matching-section section-shell"
@@ -595,10 +582,7 @@ export default function Home() {
           aria-labelledby="early-access-title"
         >
           <div className="early-access-copy">
-            <p className="eyebrow">
-              <span className="live-dot" />
-              Early access · US launch
-            </p>
+            <p className="eyebrow">Early access · US launch</p>
             <h2 id="early-access-title">
               Find your
               <br />

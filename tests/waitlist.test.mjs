@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { validateWaitlist } from "../src/lib/waitlist.ts";
+import {
+  validateBirthDate,
+  validateEmail,
+  validateWaitlist,
+} from "../src/lib/waitlist.ts";
 
 const now = new Date("2026-10-22T12:00:00Z");
 const entry = {
@@ -8,6 +12,24 @@ const entry = {
   birth_date: "2000-02-29",
   consent: "on",
 };
+
+test("step validation accepts core details before the final consent screen", () => {
+  assert.equal(validateEmail("  test@example.com  "), null);
+  assert.equal(validateBirthDate("2000-02-29", now), null);
+  const final = validateWaitlist(
+    { email: "test@example.com", birth_date: "2000-02-29" },
+    now,
+  );
+  assert.ok("error" in final);
+  assert.match(final.error, /privacy policy/);
+});
+
+test("step validation rejects email without a domain suffix and underage dates", () => {
+  assert.ok(validateEmail("test@invalid"));
+  assert.ok(validateBirthDate("2013-10-23", now));
+  assert.equal(validateBirthDate("2013-10-22", now), null);
+  assert.ok(validateBirthDate("2001-02-29", now));
+});
 
 test("valid input is normalized and only expected fields reach the backend", () => {
   const result = validateWaitlist(

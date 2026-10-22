@@ -9,6 +9,39 @@ export type WaitlistEntry = {
   source_url: string;
 };
 
+export function validateEmail(value: string): string | null {
+  const email = value.trim();
+  if (email.length > 254 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))
+    return "Please enter a valid e-mail.";
+  return null;
+}
+
+export function validateBirthDate(
+  birth_date: string,
+  now = new Date(),
+): string | null {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(birth_date))
+    return "Please add your birth date.";
+  const birth = new Date(`${birth_date}T00:00:00.000Z`);
+  if (
+    Number.isNaN(birth.valueOf()) ||
+    birth.toISOString().slice(0, 10) !== birth_date ||
+    birth_date < "1920-01-01" ||
+    birth > now
+  )
+    return "Please enter a valid birth date.";
+  let age = now.getUTCFullYear() - birth.getUTCFullYear();
+  if (
+    now.getUTCMonth() < birth.getUTCMonth() ||
+    (now.getUTCMonth() === birth.getUTCMonth() &&
+      now.getUTCDate() < birth.getUTCDate())
+  )
+    age--;
+  if (age < 13)
+    return "You must be 13 or older to join. If you are under 13, please ask a parent or guardian to sign up for you.";
+  return null;
+}
+
 export function validateWaitlist(
   input: unknown,
   now = new Date(),
@@ -21,31 +54,11 @@ export function validateWaitlist(
   if (read("website"))
     return { error: "Please check your details and try again." };
   const email = read("email").toLowerCase();
-  if (email.length > 254 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))
-    return { error: "Please enter a valid e-mail." };
+  const emailError = validateEmail(email);
+  if (emailError) return { error: emailError };
   const birth_date = read("birth_date");
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(birth_date))
-    return { error: "Please add your birth date." };
-  const birth = new Date(`${birth_date}T00:00:00.000Z`);
-  if (
-    Number.isNaN(birth.valueOf()) ||
-    birth.toISOString().slice(0, 10) !== birth_date ||
-    birth_date < "1920-01-01" ||
-    birth > now
-  )
-    return { error: "Please enter a valid birth date." };
-  let age = now.getUTCFullYear() - birth.getUTCFullYear();
-  if (
-    now.getUTCMonth() < birth.getUTCMonth() ||
-    (now.getUTCMonth() === birth.getUTCMonth() &&
-      now.getUTCDate() < birth.getUTCDate())
-  )
-    age--;
-  if (age < 13)
-    return {
-      error:
-        "You must be 13 or older to join. If you are under 13, please ask a parent or guardian to sign up for you.",
-    };
+  const birthError = validateBirthDate(birth_date, now);
+  if (birthError) return { error: birthError };
   if (values.consent !== "on" && values.consent !== true)
     return { error: "Please accept the privacy policy." };
   const first_name = read("first_name");

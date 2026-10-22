@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Header } from "@/components/header";
+import { WaitlistProvider } from "@/components/waitlist-provider";
 import "./globals.css";
 
 const inter = localFont({
@@ -62,8 +63,10 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Header />
-        {children}
+        <WaitlistProvider>
+          <Header />
+          {children}
+        </WaitlistProvider>
       </body>
     </html>
   );
