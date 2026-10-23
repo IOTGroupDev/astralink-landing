@@ -244,7 +244,7 @@ export const tools = [
     text: "Which numerology year you are in for 2026 and 2027, and what it asks of you.",
     href: "/numerology/personal-year/",
     icon: "⑨",
-    image: "tool-flower-v2",
+    image: "tool-personal-year",
     action: "Find my personal year",
   },
   {

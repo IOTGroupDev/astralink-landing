@@ -578,6 +578,13 @@ export default function Home() {
         <KeepExploring />
         <SharePage url={process.env.NEXT_PUBLIC_SITE_URL || "https://www.astra-link.app/"} />
 
+        <p className="editorial-note section-shell" id="editorial-note">
+          AstraLink content is written by our editorial team, reviewed for
+          astrological accuracy, and refreshed as the sky moves. Interpretations
+          are for reflection and entertainment; they are not medical, legal or
+          financial advice.
+        </p>
+
         <section className="final-cta section-shell">
           <p className="eyebrow">Waves fill in signup order</p>
           <h2>

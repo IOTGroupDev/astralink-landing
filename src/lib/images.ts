@@ -28,6 +28,7 @@ import toolHeartV2 from "../../public/images/tool-heart-v2.webp";
 import toolPathV2 from "../../public/images/tool-path-v2.webp";
 import toolLotusV2 from "../../public/images/tool-lotus-v2.webp";
 import toolFlowerV2 from "../../public/images/tool-flower-v2.webp";
+import toolPersonalYear from "../../public/images/tool-personal-year.webp";
 import toolTreeV2 from "../../public/images/tool-tree-v2.webp";
 import roadmapJoin from "../../public/images/roadmap-join.webp";
 import roadmapInvite from "../../public/images/roadmap-invite.webp";
@@ -67,6 +68,7 @@ export const images: Record<string, StaticImageData> = {
   "/images/tool-path-v2.webp": toolPathV2,
   "/images/tool-lotus-v2.webp": toolLotusV2,
   "/images/tool-flower-v2.webp": toolFlowerV2,
+  "/images/tool-personal-year.webp": toolPersonalYear,
   "/images/tool-tree-v2.webp": toolTreeV2,
   "/images/roadmap-join.webp": roadmapJoin,
   "/images/roadmap-invite.webp": roadmapInvite,

@@ -2493,6 +2493,14 @@ td svg {
 .share-actions > :is(button, a):focus-visible { outline: 2px solid #cfa5ff; outline-offset: 3px; }
 .share-status { flex-basis: 100%; color: #cbb7df; font-size: 13px; line-height: 1.6; }
 .share-status:empty { display: none; }
+.editorial-note {
+  padding-top: 22px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  text-wrap: pretty;
+}
 @media (max-width: 1000px) {
   .keep-exploring-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
