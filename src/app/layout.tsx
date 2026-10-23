@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import { Header } from "@/components/header";
 import { WaitlistProvider } from "@/components/waitlist-provider";
 import "./globals.css";
+import "./typography.css";
+import "./footer.css";
+import "./roadmap.css";
 
 const inter = localFont({
   src: "../../public/fonts/inter-regular.woff2",

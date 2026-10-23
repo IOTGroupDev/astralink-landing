@@ -6,7 +6,8 @@ import { BigThreeSection } from "@/components/big-three-section";
 import { LearningIcon } from "@/components/learning-icon";
 import { MatchingSection } from "@/components/matching-section";
 import { OptimizedImage as Image } from "@/components/optimized-image";
-import { BrandLogo } from "@/components/brand-logo";
+import { Footer } from "@/components/footer";
+import { SignupRoadmap } from "@/components/signup-roadmap";
 import { mobileHero } from "@/lib/images";
 import { CommunityCircle } from "@/components/community-circle";
 import { FeatureCard } from "@/components/feature-card";
@@ -88,25 +89,6 @@ const connections = [
     "7th-house overlay",
     "The partner you recognize",
     "7th-house overlay shows whether you recognize them as 'partner material' at all.",
-  ],
-];
-
-const steps = [
-  [
-    "Join with email + birth date",
-    "Thirty seconds. Name, gender and who you are looking for are optional.",
-  ],
-  [
-    "One email when your wave opens",
-    "No newsletter. You get an invitation link for iPhone or Android.",
-  ],
-  [
-    "Add birth time, get your full reading",
-    "Archetype, chart ruler, aspects, relationships, career — free for early members.",
-  ],
-  [
-    "Match by chart in your city",
-    "See compatibility scores with reasons, then decide who to talk to.",
   ],
 ];
 
@@ -513,24 +495,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          className="steps-section section-shell"
-          aria-labelledby="steps-title"
-        >
-          <SectionHeading
-            title="From signup to your first match"
-            id="steps-title"
-          />
-          <div className="steps-grid">
-            {steps.map(([title, text], i) => (
-              <div className="step" key={title}>
-                <span className="step-number">0{i + 1}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <SignupRoadmap />
 
 
 
@@ -628,100 +593,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer page-panel">
-        <div className="footer-top">
-          <a
-            className="wordmark footer-wordmark"
-            href="#home"
-            aria-label="AstraLink home"
-          >
-            <BrandLogo />
-          </a>
-          <p>
-            Find your cosmic match.
-            <br />
-            Understand your chart.
-            <br />
-            Time your next move.
-          </p>
-          <a className="footer-top-link" href="#home">
-            Back to top
-            <Arrow diagonal />
-          </a>
-        </div>
-        <div className="footer-links">
-          <div>
-            <p className="eyebrow">The App</p>
-            {[
-              ["Birth chart", "/birth-chart/"],
-              ["AI Advisor", "/ai-advisor/"],
-              ["Cosmic Dating", "/cosmic-dating/"],
-              ["Personal Codes", "/personal-codes/"],
-              ["Cosmic Simulator", "/cosmic-simulator/"],
-              ["Moon calendar", "/moon-calendar/"],
-            ].map(([title, href]) => (
-              <a key={title} href={sourceLink(href)}>
-                {title}
-              </a>
-            ))}
-          </div>
-          <div>
-            <p className="eyebrow">Explore</p>
-            {[
-              ["Horoscopes", "/horoscopes/"],
-              ["Compatibility", "/compatibility/"],
-              ["All tools", "/tools/"],
-              ["Academy", "/academy/"],
-              ["Articles", "/blog/"],
-              ["News", "/news/"],
-            ].map(([title, href]) => (
-              <a key={title} href={sourceLink(href)}>
-                {title}
-              </a>
-            ))}
-          </div>
-          <div>
-            <p className="eyebrow brand-name">AstraLink</p>
-            {[
-              ["Editorial policy", "/editorial-policy/"],
-              ["Authors", "/authors/"],
-              ["Contact", "/contact/"],
-              ["En español", "/es/"],
-            ].map(([title, href]) => (
-              <a key={title} href={sourceLink(href)}>
-                {title}
-              </a>
-            ))}
-          </div>
-          <div>
-            <p className="eyebrow">Follow us</p>
-            <a href="https://www.instagram.com/astralinkapp/">
-              Instagram
-              <Arrow diagonal width="14" height="14" />
-            </a>
-            <a href="https://www.facebook.com/astralinkapp/">
-              Facebook
-              <Arrow diagonal width="14" height="14" />
-            </a>
-            <a href="https://www.pinterest.com/astralinkapp/">
-              Pinterest
-              <Arrow diagonal width="14" height="14" />
-            </a>
-            <a href="https://www.tiktok.com/@astralinkapp">
-              TikTok
-              <Arrow diagonal width="14" height="14" />
-            </a>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>© 2026 AstraLink</p>
-          <span>Private, encrypted, never sold.</span>
-          <div>
-            <a href={sourceLink("/privacy/")}>Privacy</a>
-            <a href={sourceLink("/terms/")}>Terms</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,196 @@
+/* Moonly reference: 52/54 hero, 40/40 sections, 32/36 feature headings,
+   24/24 cards, 16/22 body, 12/16.8 labels, 20/24 footer links.
+   Inter uses real variable weights; Moonly's CSS 400 uses SemiBold outlines. */
+:root {
+  --type-hero-size: 52px;
+  --type-hero-line: 54px;
+  --type-section-size: 40px;
+  --type-section-line: 40px;
+  --type-feature-size: 32px;
+  --type-feature-line: 36px;
+  --type-card-size: 24px;
+  --type-card-line: 28px;
+  --type-body-size: 16px;
+  --type-body-line: 22px;
+  --type-heading-weight: 600;
+  --type-body-weight: 500;
+}
+
+.hero h1 {
+  font-size: var(--type-hero-size);
+  line-height: var(--type-hero-line);
+  font-weight: var(--type-heading-weight);
+  letter-spacing: 0;
+}
+
+.hero-description {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: var(--type-body-weight);
+}
+
+h2,
+.shortcut-section .section-heading h2,
+.big-three-copy h2,
+.circle-copy h2,
+.manifesto h2,
+.early-access-copy h2,
+.switch-section h2,
+.signup-waves-panel h2,
+.keep-exploring-section > h2,
+.final-cta h2,
+.section-interlude h2 {
+  font-size: var(--type-section-size);
+  line-height: var(--type-section-line);
+  font-weight: var(--type-heading-weight);
+  letter-spacing: -0.02em;
+}
+
+.feature-copy h3,
+.feature-wide .feature-copy h3,
+.matching-explanation h3,
+.matching-score-copy h3,
+.form-heading h3 {
+  font-size: var(--type-feature-size);
+  line-height: var(--type-feature-line);
+  font-weight: var(--type-heading-weight);
+  letter-spacing: 0;
+}
+
+.feature-grid .feature-copy h3,
+.feature-grid-centered .feature-copy h3,
+.tool-launch-card h3,
+.learn-resource-card h3,
+.sky-timeline-content h3,
+.step h3,
+.sources-panel h2 {
+  font-size: var(--type-card-size);
+  line-height: var(--type-card-line);
+  font-weight: var(--type-heading-weight);
+  letter-spacing: 0;
+}
+
+.section-heading > p:last-child:not(.eyebrow),
+.shortcut-section .section-heading > p,
+.feature-description,
+.feature-grid-centered .feature-description,
+.matching-explanation > p:not(.eyebrow),
+.matching-score-copy > p:not(.eyebrow),
+.big-three-copy > p:not(.eyebrow),
+.circle-copy > p:last-child,
+.sky-timeline-content p,
+.manifesto > p,
+.tool-launch-card > p,
+.step > p,
+.early-access-copy > p:not(.eyebrow),
+.learn-resource-card > p,
+.explore-link-card p,
+.switch-reasons li,
+.switch-context,
+.signup-waves-panel p,
+#faq .faq-list details > p,
+.sources-panel > p,
+.final-cta > p:not(.eyebrow) {
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
+  font-weight: var(--type-body-weight);
+  letter-spacing: 0;
+}
+
+.feature-details,
+.feature-grid-centered .feature-details,
+.feature-grid-centered .feature-details li,
+.feature-cosmic .feature-details,
+.matching-connections li,
+.benefits li {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: var(--type-body-weight);
+}
+
+.feature-details li > svg,
+.benefits li > svg,
+.hero-trust > span > svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  stroke-width: 2.4;
+}
+
+.benefits li > svg {
+  margin-top: 0;
+}
+
+.eyebrow,
+.feature-copy .eyebrow,
+.feature-grid-centered .eyebrow {
+  font-size: 12px;
+  line-height: 16.8px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.button,
+.final-cta .button,
+.big-three-explanation > .button,
+.text-link,
+.tool-launch-action {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.small-note,
+.sources-panel .sources-note {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.share-panel h2 {
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+#faq .faq-list summary {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+@media (max-width: 1439px) {
+  :root {
+    --type-hero-size: 42px;
+    --type-hero-line: 44px;
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --type-hero-size: 33px;
+    --type-hero-line: 36px;
+    --type-section-size: 32px;
+    --type-section-line: 34px;
+    --type-feature-size: 28px;
+    --type-feature-line: 32px;
+  }
+
+  .hero-description {
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-line);
+  }
+
+  #faq .faq-list summary {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 390px) {
+  :root {
+    --type-hero-size: 30px;
+    --type-hero-line: 32px;
+  }
+}

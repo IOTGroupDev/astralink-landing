@@ -29,6 +29,10 @@ import toolPathV2 from "../../public/images/tool-path-v2.webp";
 import toolLotusV2 from "../../public/images/tool-lotus-v2.webp";
 import toolFlowerV2 from "../../public/images/tool-flower-v2.webp";
 import toolTreeV2 from "../../public/images/tool-tree-v2.webp";
+import roadmapJoin from "../../public/images/roadmap-join.webp";
+import roadmapInvite from "../../public/images/roadmap-invite.webp";
+import roadmapChart from "../../public/images/roadmap-chart.webp";
+import roadmapMatch from "../../public/images/roadmap-match.webp";
 import type { StaticImageData } from "next/image";
 
 // Static imports give each source a content hash, so long-lived image caches
@@ -64,6 +68,10 @@ export const images: Record<string, StaticImageData> = {
   "/images/tool-lotus-v2.webp": toolLotusV2,
   "/images/tool-flower-v2.webp": toolFlowerV2,
   "/images/tool-tree-v2.webp": toolTreeV2,
+  "/images/roadmap-join.webp": roadmapJoin,
+  "/images/roadmap-invite.webp": roadmapInvite,
+  "/images/roadmap-chart.webp": roadmapChart,
+  "/images/roadmap-match.webp": roadmapMatch,
 };
 
 export const mobileHero = heroMobile.src;
